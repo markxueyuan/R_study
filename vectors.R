@@ -290,7 +290,65 @@ predc <- function(x,k){
 
 
 
+############### Vectorized Operations ###############
 
+# Vectorization can make a dramatic performance increase of
+# hundredsfold or more
+
+u <- c(5,2,8)
+v <- c(1,3,9)
+
+u > v
+
+# if a function uses vectorized operations, it too is vectorized
+
+w <- function(x)
+  return(x+1)
+
+# transcendental functions are vectorized
+
+sqrt(1:9)
+
+y <- c(1.2,3.9,0.4)
+
+z <- round(y)
+
+# special case: one number is an one element vector
+round(1.2)
+
+f(c(1,2,3),c(3,2,1))
+f(c(1,2,3),4)
+
+
+# to confine to scalar
+
+f <- function(x,c){
+  if(length(c) != 1)
+    stop("vector c not allowed")
+  return((x+c)^2)
+}
+
+
+# Vector in, matrix out
+
+z12 <- function(z)
+  return(c(z,z^2))
+
+# to matrix
+
+x <- 1
+
+z12(x)
+
+matrix(z12(x),ncol=2)
+
+matrix(z12(x),ncol=4)
+
+#simplify apply
+
+sapply(1:8,z12)
+
+# What's up?
 
 
 
