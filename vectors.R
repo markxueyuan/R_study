@@ -346,7 +346,7 @@ matrix(z12(x),ncol=4)
 
 #simplify apply
 
-sapply(1:8,z12)
+sapply(1:8,z12)# a bit like clojure's map
 
 # What's up?
 
